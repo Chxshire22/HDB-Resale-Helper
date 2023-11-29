@@ -16,7 +16,7 @@ function App() {
           <Route path="/buying" element={<Buying salesProceeds={salesProceeds}/>} />
           <Route
             path="/selling"
-            element={<Selling setSalesProceeds={setSalesProceeds} />}
+            element={<Selling salesProceeds={salesProceeds} setSalesProceeds={setSalesProceeds} />}
           />
           <Route path="/" element={<Home />} />
         </Routes>
