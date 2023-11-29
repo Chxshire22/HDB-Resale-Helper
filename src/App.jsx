@@ -29,7 +29,7 @@ function App() {
 
 
   return (
-    <>
+    <div className="app-container" style={{ minHeight:"100vh"}}>
       <Router>
         <Routes>
           <Route
@@ -85,7 +85,8 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>
-    </>
+
+    </div>
   );
 }
 

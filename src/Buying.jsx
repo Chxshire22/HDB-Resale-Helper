@@ -94,7 +94,7 @@ export default function Buying(props) {
   return (
     <div>
       <Link to="/">
-        <Button variant="primary">Home</Button>
+        <Button className="btn-home" variant="primary">Home</Button>
       </Link>
 
       <Form onSubmit={handleSubmit}>
@@ -153,7 +153,7 @@ export default function Buying(props) {
           </InputGroup>
         </Form.Group>
 
-        <Button variant="success" type="submit">
+        <Button className="btn btn-submit" variant="success" type="submit">
           Submit
         </Button>
       </Form>

@@ -115,10 +115,12 @@ export default function Selling(props) {
   return (
     <div>
       <Link to="/">
-        <Button variant="primary">Home</Button>
+        <Button className="btn-home" variant="primary">
+          Home
+        </Button>
       </Link>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="sellingPrice">
+        <Form.Group className="mb-3 form-group" controlId="sellingPrice">
           <Form.Label>Selling Price </Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -131,7 +133,7 @@ export default function Selling(props) {
             />
           </InputGroup>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="outstandingLoan">
+        <Form.Group className="mb-3 form-group" controlId="outstandingLoan">
           <Form.Label>Outstanding Mortgage </Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -144,7 +146,7 @@ export default function Selling(props) {
             />
           </InputGroup>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="cpfUsed">
+        <Form.Group className="mb-3 form-group" controlId="cpfUsed">
           <Form.Label>CPF Used </Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -157,7 +159,7 @@ export default function Selling(props) {
             />
           </InputGroup>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="accruedInterest">
+        <Form.Group className="mb-3 form-group" controlId="accruedInterest">
           <Form.Label>Accrued Interest </Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -170,7 +172,7 @@ export default function Selling(props) {
             />
           </InputGroup>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="saleLevy">
+        <Form.Group className="mb-3 form-group" controlId="saleLevy">
           <Form.Label>Upgrading/Resale Levy</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -182,7 +184,7 @@ export default function Selling(props) {
             />
           </InputGroup>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="buyingHdbBool">
+        <Form.Group className="mb-3 form-group" controlId="buyingHdbBool">
           <Form.Label>Are You Purchasing Another HDB? </Form.Label>
           <Form.Check
             checked={nextHdbValue}
@@ -190,7 +192,7 @@ export default function Selling(props) {
             onChange={handleNextHdb}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="usingHleBool">
+        <Form.Group className="mb-3 form-group" controlId="usingHleBool">
           <Form.Label>Will you be taking HDB Loan for the next HDB?</Form.Label>
           <Form.Check
             checked={nextHleValue}
@@ -200,17 +202,21 @@ export default function Selling(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="usingHleBool">
+        <Form.Group className="mb-3 form-group" controlId="usingHleBool">
           <Form.Label>Are you hiring an agent?</Form.Label>
           <Form.Check
             checked={agentSellValue}
             type="checkbox"
             onChange={handleSellAgent}
           />
-          <p>{agentSellValue? `Your agency fee, incl 8% GST: ${f.format(agencyFeeSellValue)}`: null}</p>
+          <p>
+            {agentSellValue
+              ? `Your agency fee, incl 8% GST: ${f.format(agencyFeeSellValue)}`
+              : null}
+          </p>
         </Form.Group>
 
-        <Button type="submit" variant="success">
+        <Button className="btn btn-submit" type="submit" variant="success">
           Submit
         </Button>
       </Form>

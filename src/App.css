@@ -27,19 +27,29 @@
 
 }
 
-body{
+body, a{
   font-family: 'hedvig-letters-sans',Verdana, Geneva, Tahoma, sans-serif;
+  color: #ABD7FF;
+  background-color: #203162;
 }
 h1,h2,h3,h4{
   font-family: 'poppinsregular',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+footer{
+  font-size: xx-small;
+  bottom: -10px;
+}
+
 /* bg */
 
 .home-background{
-  background-color: #203162;
-  height: 100vh;
-  width: 100vw;
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 63%;
 }
 
 /* Home */
@@ -48,9 +58,19 @@ h1,h2,h3,h4{
   color: #ABD7FF;
 }
 
+.home-header{
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 3rem;
+}
+.home-header__tag{
+  margin-top: 10vh;
+}
+
 /* Buttons */
 
-.button{
+.btn{
   margin: 0.5rem;
   font-family: 'poppinsregular',Arial, Helvetica, sans-serif;
   border-radius: 30px;
@@ -61,11 +81,45 @@ h1,h2,h3,h4{
   border-radius: 30px;
   padding-inline: 2.5rem;
 }
-
-.button-selling{
-  background-color: #FF9D42;
+.btn:hover{
+  color: #203162;
 }
 
-.button-buying{
+.btn-selling{
+  background-color: #FF9D42;
+}
+.btn-selling:hover{
+  background-color: #be7633;
+}
+
+.btn-buying{
   background-color: #FFD916;
+}
+.btn-buying:hover{
+  background-color: #b69a11;
+}
+
+.btn-home{
+  background-color: #ABD7FF;
+}
+.btn-home:hover{
+  background-color: #728faa;
+}
+
+.btn-submit{
+  background-color: #19A28D;
+}
+.btn-submit:hover{
+  background-color: #137a6b;
+}
+
+/* forms */
+
+form{
+  padding: 1rem;
+}
+
+label{
+  font-weight: bold;
+  letter-spacing: 1px;
 }
