@@ -57,7 +57,7 @@ export default function Buying(props) {
 
   //only show if nextHleValue == true
 
-  const CpfMustUse = () => {
+  const CashMustUse = () => {
     return (
       <Form.Group>
         <Form.Label>Cash Must Use</Form.Label>
@@ -73,6 +73,24 @@ export default function Buying(props) {
     );
   };
 
+  // only show if exists
+
+  const CpfReturned = () =>{
+    return (
+      <Form.Group>
+        <Form.Label>CPF Returned To Your Account</Form.Label>
+        <InputGroup>
+          <InputGroup.Text>$</InputGroup.Text>
+          <Form.Control
+            type="text"
+            readOnly
+            value={f.format(returnedCpf)}
+          ></Form.Control>
+        </InputGroup>
+      </Form.Group>
+    );
+  }
+
   return (
     <div>
       <Link to="/">
@@ -80,17 +98,7 @@ export default function Buying(props) {
       </Link>
 
       <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label>CPF Returned To Your Account</Form.Label>
-          <InputGroup>
-            <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control
-              type="text"
-              readOnly
-              value={f.format(returnedCpf)}
-            ></Form.Control>
-          </InputGroup>
-        </Form.Group>
+        {returnedCpf? <CpfReturned/>:null}
 
         <Form.Group>
           <Form.Label>Current CPF OA</Form.Label>
@@ -118,7 +126,7 @@ export default function Buying(props) {
             ></Form.Control>
           </InputGroup>
         </Form.Group>
-        {nextHleValue ? <CpfMustUse /> : null}
+        {nextHleValue ? <CashMustUse /> : null}
 
         <Form.Group>
           <Form.Label>Cash To Use</Form.Label>
@@ -151,7 +159,7 @@ export default function Buying(props) {
       </Form>
 
       <h3>
-        Your max budget: {affordability == 0 ? "" : f.format(affordability)}
+        Your estimated budget: {affordability == 0 ? "" : f.format(affordability)}
       </h3>
 
       <Link to="/selling">
