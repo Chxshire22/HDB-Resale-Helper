@@ -8,6 +8,8 @@ export default function Selling(props) {
   //   currency: "SGD",
   //   style: "currency"
   // })
+
+
   // states for each input fields
   const [sellingPriceValue, setSellingPriceValue] = useState("")
   const [outstandingValue, setOutstandingValue] = useState("")
@@ -23,6 +25,7 @@ export default function Selling(props) {
   //lift this to App.jsx
   let setSalesProceeds = props.setSalesProceeds;
   let salesProceeds = props.salesProceeds
+  let setReturnedCpf = props.setReturnedCpf;
 
   
   let handleSellingOnChange = (e) => {
@@ -62,10 +65,10 @@ export default function Selling(props) {
 
     setSalesProceeds((proceeds) => {
       proceeds = sellingPriceValue - outstandingValue - cpfUsedValue - accruedValue - levyValue
-      if (nextHleValue == true){return proceeds/2}
-      else{return proceeds}
+      return nextHleValue? proceeds/2 : proceeds
     })
 
+    setReturnedCpf((cpf) => cpf = Number(cpfUsedValue)+Number(accruedValue))
   };
 
 
@@ -135,16 +138,18 @@ export default function Selling(props) {
           <Form.Label>Are You Purchasing Another HDB? </Form.Label>
           <Form.Check type="checkbox" onChange={handleNextHdb} />
         </Form.Group>
+
+
         <Form.Group className="mb-3" controlId="usingHleBool">
           <Form.Label>Will you be taking HDB Loan for the next HDB?</Form.Label>
-          <Form.Check required disabled={disabledNextHleInput} type="checkbox" onChange={handleNextHle}/>
+          <Form.Check  disabled={disabledNextHleInput} type="checkbox" onChange={handleNextHle}/>
         </Form.Group>
         <Button type="submit" variant="success">
           Submit
         </Button>
       </Form>
 
-      <h3>Your cash proceeds: {salesProceeds}</h3>
+      <h3>Your cash proceeds: {salesProceeds == 0? "" : salesProceeds}</h3>
     </div>
   );
 }

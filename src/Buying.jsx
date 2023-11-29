@@ -1,7 +1,11 @@
 export default function Buying(props){
 
-  
+  let returnedCpf = props.returnedCpf
+
   return (
-    <h1>You reached the buying page</h1>
+    <div>
+      <h1>You reached the buying page</h1>
+      <p>returned cpf {returnedCpf}</p>
+    </div>
   )
 }
