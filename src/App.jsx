@@ -5,10 +5,16 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Selling from "./Selling";
 import Buying from "./Buying";
 import Home from "./Home";
+// import ThemeProvider from "react-bootstrap/ThemeProvider";
 
 function App() {
   const [salesProceeds, setSalesProceeds] = useState(0);
   const [returnedCpf, setReturnedCpf] = useState(0);
+  const [nextHleValue, setNextHleValue] = useState(false);
+  const [sellingPriceValue, setSellingPriceValue] = useState("");
+  const [outstandingValue, setOutstandingValue] = useState("");
+
+
   return (
     <>
       <Router>
@@ -16,13 +22,19 @@ function App() {
           <Route
             path="/buying"
             element={
-              <Buying returnedCpf={returnedCpf} salesProceeds={salesProceeds} />
+              <Buying nextHleValue={nextHleValue} returnedCpf={returnedCpf} salesProceeds={salesProceeds} />
             }
           />
           <Route
             path="/selling"
             element={
               <Selling
+                outstandingValue = {outstandingValue}
+                setOutstandingValue = {setOutstandingValue}
+                sellingPriceValue = {sellingPriceValue}
+                setSellingPriceValue = {setSellingPriceValue}
+                nextHleValue = {nextHleValue}
+                setNextHleValue = {setNextHleValue}
                 setReturnedCpf={setReturnedCpf}
                 salesProceeds={salesProceeds}
                 setSalesProceeds={setSalesProceeds}
