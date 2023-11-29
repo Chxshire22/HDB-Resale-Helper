@@ -14,10 +14,10 @@ export default function Selling(props) {
   // states for each input fields
   // const [sellingPriceValue, setSellingPriceValue] = useState("")
   // const [outstandingValue, setOutstandingValue] = useState("")
-  const [cpfUsedValue, setCpfUsedValue] = useState("")
-  const [accruedValue, setAccruedValue] = useState("")
-  const [levyValue, setLevyValue] = useState("")
-  const [nextHdbValue, setNextHdbValue] = useState(false)
+  // const [cpfUsedValue, setCpfUsedValue] = useState("")
+  // const [accruedValue, setAccruedValue] = useState("")
+  // const [levyValue, setLevyValue] = useState("")
+  // const [nextHdbValue, setNextHdbValue] = useState(false)
 
   //input is only needed if seller is buying next HDB
   const [disabledNextHleInput, setDisabledNextHleInput] = useState(true)
@@ -30,8 +30,16 @@ export default function Selling(props) {
   // let setNextHleValue = props.setNextHleValue;
 
   let {
+    accruedValue,
+    setAccruedValue,
+    levyValue,
+    setLevyValue,
+    nextHdbValue,
+    setNextHdbValue,
+    setCpfUsedValue,
+    cpfUsedValue,
     outstandingValue,
-    outstandingValue,
+    setOutstandingValue,
     sellingPriceValue,
     setSellingPriceValue,
     setSalesProceeds,

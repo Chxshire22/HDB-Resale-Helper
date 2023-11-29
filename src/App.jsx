@@ -13,6 +13,10 @@ function App() {
   const [nextHleValue, setNextHleValue] = useState(false);
   const [sellingPriceValue, setSellingPriceValue] = useState("");
   const [outstandingValue, setOutstandingValue] = useState("");
+  const [cpfUsedValue, setCpfUsedValue] = useState("");
+  const [accruedValue, setAccruedValue] = useState("");
+  const [levyValue, setLevyValue] = useState("");
+  const [nextHdbValue, setNextHdbValue] = useState(false);
 
 
   return (
@@ -29,6 +33,14 @@ function App() {
             path="/selling"
             element={
               <Selling
+                accruedValue={accruedValue}
+                setAccruedValue={setAccruedValue}
+                levyValue={levyValue}
+                setLevyValue={setLevyValue}
+                nextHdbValue={nextHdbValue}
+                setNextHdbValue={setNextHdbValue}
+                setCpfUsedValue={setCpfUsedValue}
+                cpfUsedValue = {cpfUsedValue}
                 outstandingValue = {outstandingValue}
                 setOutstandingValue = {setOutstandingValue}
                 sellingPriceValue = {sellingPriceValue}
