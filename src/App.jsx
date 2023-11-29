@@ -1,11 +1,10 @@
-import "./App.css";
+
 import { useState } from "react";
-// import Button from "react-bootstrap/Button";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Selling from "./Selling";
 import Buying from "./Buying";
 import Home from "./Home";
-// import ThemeProvider from "react-bootstrap/ThemeProvider";
+import "./App.css";
 
 function App() {
   //states for selling
