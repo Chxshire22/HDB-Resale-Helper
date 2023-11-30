@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <div className="home-background">
-        <h1 className="home-header">HDB Resale Helper</h1>
+        <h1 className="home-header">HDB Resale.Helper</h1>
         <h3 className="home-header__tag">I am ...</h3>
         <div className="links">
           <Link className="link" to="/selling">

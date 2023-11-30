@@ -91,12 +91,14 @@ const f = new Intl.NumberFormat("en-us", {
   }
 
   return (
-    <div>
+    <div className="container__block">
       <Link to="/">
         <Button className="btn-home btn-blue" variant="primary">
           Home
         </Button>
       </Link>
+
+      <h1 className="container__block-header">Affordability</h1>
 
       <Form onSubmit={handleSubmit}>
         {returnedCpf ? <CpfReturned /> : null}
@@ -167,15 +169,23 @@ const f = new Intl.NumberFormat("en-us", {
         </h3>
       ) : null}
 
-      <div className="return-action">
+      {/* <div className="return-action">
         <Link to="/selling">
           <Button className="btn btn-home btn-blue" variant="primary">
             Selling
           </Button>
         </Link>
 
-        <p>Return to previous page</p>
-      </div>
+        <p>Go to selling page</p>
+      </div> */}
+      <p className="return-action">
+        <Link to="/selling">
+          <Button className="btn btn-blue" variant="primary">
+            Selling
+          </Button>
+        </Link>{" "}
+        Go to selling page
+      </p>
     </div>
   );
 }

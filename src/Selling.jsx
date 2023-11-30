@@ -120,125 +120,128 @@ export default function Selling(props) {
 
 
   return (
-    <div>
+    <div className="container__block">
       <Link to="/">
         <Button className="btn btn-blue btn-home" variant="primary">
           Home
         </Button>
       </Link>
+
+      <h1 className="container__block-header">Find out your sales proceeds</h1>
+
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3 form-group" controlId="sellingPrice">
-          <Form.Label>Selling Price </Form.Label>
-          <InputGroup>
-            <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control
-              value={sellingPriceValue}
-              required
-              type="number"
-              placeholder="Enter proposed selling price"
-              onChange={handleSellingOnChange}
-              min={1}
-              step={1}
+        <div className="form-content">
+          <Form.Group className="mb-3 form-group" controlId="sellingPrice">
+            <Form.Label>Selling Price </Form.Label>
+            <InputGroup>
+              <InputGroup.Text>$</InputGroup.Text>
+              <Form.Control
+                value={sellingPriceValue}
+                required
+                type="number"
+                placeholder="Enter proposed selling price"
+                onChange={handleSellingOnChange}
+                min={1}
+                step={1}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3 form-group" controlId="outstandingLoan">
+            <Form.Label>Outstanding Mortgage </Form.Label>
+            <InputGroup>
+              <InputGroup.Text>$</InputGroup.Text>
+              <Form.Control
+                value={outstandingValue}
+                required
+                type="number"
+                placeholder=""
+                onChange={handleOutstandingOnChange}
+                step={0.01}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3 form-group" controlId="cpfUsed">
+            <Form.Label>CPF Used </Form.Label>
+            <InputGroup>
+              <InputGroup.Text>$</InputGroup.Text>
+              <Form.Control
+                value={cpfUsedValue}
+                required
+                type="number"
+                placeholder=""
+                onChange={handleCpfUsedOnChange}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3 form-group" controlId="accruedInterest">
+            <Form.Label>Accrued Interest </Form.Label>
+            <InputGroup>
+              <InputGroup.Text>$</InputGroup.Text>
+              <Form.Control
+                value={accruedValue}
+                required
+                type="number"
+                placeholder=""
+                onChange={handleAccruedOnChange}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3 form-group" controlId="saleLevy">
+            <Form.Label>Upgrading/Resale Levy</Form.Label>
+            <InputGroup>
+              <InputGroup.Text>$</InputGroup.Text>
+              <Form.Control
+                value={levyValue}
+                type="number"
+                placeholder=""
+                onChange={handleLevyOnChange}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group
+            className="mb-3 form-group checkbox-field"
+            controlId="buyingHdbBool"
+          >
+            <Form.Label>Are You Purchasing Another HDB? </Form.Label>
+            <Form.Check
+              checked={nextHdbValue}
+              type="checkbox"
+              onChange={handleNextHdb}
             />
-          </InputGroup>
-        </Form.Group>
-        <Form.Group className="mb-3 form-group" controlId="outstandingLoan">
-          <Form.Label>Outstanding Mortgage </Form.Label>
-          <InputGroup>
-            <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control
-              value={outstandingValue}
-              required
-              type="number"
-              placeholder=""
-              onChange={handleOutstandingOnChange}
-              step={0.01}
+          </Form.Group>
+          <Form.Group
+            className="mb-3 form-group checkbox-field"
+            controlId="usingHleBool"
+          >
+            <Form.Label>Will you be taking HDB Loan for the next HDB?</Form.Label>
+            <Form.Check
+              checked={nextHleValue}
+              disabled={disabledNextHleInput}
+              type="checkbox"
+              onChange={handleNextHle}
             />
-          </InputGroup>
-        </Form.Group>
-        <Form.Group className="mb-3 form-group" controlId="cpfUsed">
-          <Form.Label>CPF Used </Form.Label>
-          <InputGroup>
-            <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control
-              value={cpfUsedValue}
-              required
-              type="number"
-              placeholder=""
-              onChange={handleCpfUsedOnChange}
+          </Form.Group>
+          <Form.Group
+            className="mb-3 form-group checkbox-field"
+            controlId="usingHleBool"
+          >
+            <Form.Label>Are you hiring an agent?</Form.Label>
+            <Form.Check
+              checked={agentSellValue}
+              type="checkbox"
+              onChange={handleSellAgent}
             />
-          </InputGroup>
-        </Form.Group>
-        <Form.Group className="mb-3 form-group" controlId="accruedInterest">
-          <Form.Label>Accrued Interest </Form.Label>
-          <InputGroup>
-            <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control
-              value={accruedValue}
-              required
-              type="number"
-              placeholder=""
-              onChange={handleAccruedOnChange}
-            />
-          </InputGroup>
-        </Form.Group>
-        <Form.Group className="mb-3 form-group" controlId="saleLevy">
-          <Form.Label>Upgrading/Resale Levy</Form.Label>
-          <InputGroup>
-            <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control
-              value={levyValue}
-              type="number"
-              placeholder=""
-              onChange={handleLevyOnChange}
-            />
-          </InputGroup>
-        </Form.Group>
-        <Form.Group
-          className="mb-3 form-group checkbox-field"
-          controlId="buyingHdbBool"
-        >
-          <Form.Label>Are You Purchasing Another HDB? </Form.Label>
-          <Form.Check
-            checked={nextHdbValue}
-            type="checkbox"
-            onChange={handleNextHdb}
-          />
-        </Form.Group>
-        <Form.Group
-          className="mb-3 form-group checkbox-field"
-          controlId="usingHleBool"
-        >
-          <Form.Label>Will you be taking HDB Loan for the next HDB?</Form.Label>
-          <Form.Check
-            checked={nextHleValue}
-            disabled={disabledNextHleInput}
-            type="checkbox"
-            onChange={handleNextHle}
-          />
-        </Form.Group>
-
-        <Form.Group
-          className="mb-3 form-group checkbox-field"
-          controlId="usingHleBool"
-        >
-          <Form.Label>Are you hiring an agent?</Form.Label>
-          <Form.Check
-            checked={agentSellValue}
-            type="checkbox"
-            onChange={handleSellAgent}
-          />
-          <p className="agency-fee">
-            {agentSellValue
-              ? `Your agency fee, incl 8% GST: $${f.format(agencyFeeSellValue)}`
-              : null}
-          </p>
-        </Form.Group>
-
-        <div className="container__submit-btn">
-          <Button className="btn btn-submit" variant="success" type="submit">
-            Submit
-          </Button>
+            <p className="agency-fee">
+              {agentSellValue
+                ? `Your agency fee, incl 8% GST: $${f.format(agencyFeeSellValue)}`
+                : null}
+            </p>
+          </Form.Group>
+          <div className="container__submit-btn">
+            <Button className="btn btn-submit" variant="success" type="submit">
+              Submit
+            </Button>
+          </div>
         </div>
       </Form>
       {salesProceeds ? (
