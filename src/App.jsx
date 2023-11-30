@@ -29,7 +29,7 @@ function App() {
 
 
   return (
-    <div className="app-container" style={{ minHeight:"100vh"}}>
+    <div className="app-container" style={{ minHeight: "100vh" }}>
       <Router>
         <Routes>
           <Route
@@ -85,7 +85,11 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>
-
+      <footer>
+        <p>
+          UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+        </p>
+      </footer>
     </div>
   );
 }

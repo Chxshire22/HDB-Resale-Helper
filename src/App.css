@@ -30,7 +30,7 @@
 body, a{
   font-family: 'hedvig-letters-sans',Verdana, Geneva, Tahoma, sans-serif;
   color: #ABD7FF;
-  background-color: #203162;
+  background-color: #202124;
 }
 h1,h2,h3,h4{
   font-family: 'poppinsregular',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -70,6 +70,10 @@ footer{
 
 /* Buttons */
 
+.links{
+  display: flex;
+}
+
 .btn{
   margin: 0.5rem;
   font-family: 'poppinsregular',Arial, Helvetica, sans-serif;
@@ -85,8 +89,9 @@ footer{
   color: #203162;
 }
 
-.btn-selling{
+/* .btn-selling{
   background-color: #FF9D42;
+  font-size: 2rem;
 }
 .btn-selling:hover{
   background-color: #be7633;
@@ -94,10 +99,11 @@ footer{
 
 .btn-buying{
   background-color: #FFD916;
+  font-size: 2rem;
 }
 .btn-buying:hover{
   background-color: #b69a11;
-}
+} */
 
 .btn-blue{
   background-color: #ABD7FF;
@@ -159,6 +165,7 @@ label{
   margin-left: 2rem;
 }
 
+
 @media screen and (min-width: 768px) {
   .form-label{
     width: 50%;
@@ -169,5 +176,62 @@ label{
   }
   .checkbox-field{
     display: flex;
+  }
+}
+
+
+/* img */
+
+.responsive-img{
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s;
+}
+
+.responsive-img:hover{
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .link{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+  }
+  .btn-selling{
+    font-size: 1.5rem;
+    width: 50%;
+  }
+  .btn-buying{
+    font-size: 1.5rem;
+    width: 50%;
+  }
+  .responsive-img{
+    margin-left: 3rem;
+    width: 50%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 430px) {
+  .home-background{
+    padding-top: 10vh;
+  }
+  .btn-selling{
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .btn-buying{
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .responsive-img{
+    margin-left: 3rem;
+    height: auto;
   }
 }
