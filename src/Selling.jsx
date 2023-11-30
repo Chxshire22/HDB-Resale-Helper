@@ -6,8 +6,7 @@ import {Link} from 'react-router-dom'
 export default function Selling(props) {
   
   const f = new Intl.NumberFormat("en-us",{
-    currency: "SGD",
-    style: "currency"
+    style:"decimal"
   })
 
   //input is only needed if seller is buying next HDB
@@ -72,7 +71,7 @@ export default function Selling(props) {
   
   let handleSubmit = (e) => {
     e.preventDefault();
-    console.log("sellingPriceValue ", sellingPriceValue)
+    console.log("sellingPriceValue ", f.format(sellingPriceValue))
     console.log("outstandingValue ", outstandingValue)
     console.log("cpfUsedValue ", cpfUsedValue)
     console.log("accruedValue ", accruedValue)
@@ -115,7 +114,7 @@ export default function Selling(props) {
   return (
     <div>
       <Link to="/">
-        <Button className="btn-home" variant="primary">
+        <Button className="btn btn-blue btn-home" variant="primary">
           Home
         </Button>
       </Link>
@@ -127,9 +126,11 @@ export default function Selling(props) {
             <Form.Control
               value={sellingPriceValue}
               required
-              type="text"
+              type="number"
               placeholder="Enter proposed selling price"
               onChange={handleSellingOnChange}
+              min={1}
+              step={1}
             />
           </InputGroup>
         </Form.Group>
@@ -143,6 +144,7 @@ export default function Selling(props) {
               type="number"
               placeholder=""
               onChange={handleOutstandingOnChange}
+              step={0.01}
             />
           </InputGroup>
         </Form.Group>
@@ -184,7 +186,10 @@ export default function Selling(props) {
             />
           </InputGroup>
         </Form.Group>
-        <Form.Group className="mb-3 form-group" controlId="buyingHdbBool">
+        <Form.Group
+          className="mb-3 form-group checkbox-field"
+          controlId="buyingHdbBool"
+        >
           <Form.Label>Are You Purchasing Another HDB? </Form.Label>
           <Form.Check
             checked={nextHdbValue}
@@ -192,7 +197,10 @@ export default function Selling(props) {
             onChange={handleNextHdb}
           />
         </Form.Group>
-        <Form.Group className="mb-3 form-group" controlId="usingHleBool">
+        <Form.Group
+          className="mb-3 form-group checkbox-field"
+          controlId="usingHleBool"
+        >
           <Form.Label>Will you be taking HDB Loan for the next HDB?</Form.Label>
           <Form.Check
             checked={nextHleValue}
@@ -202,30 +210,43 @@ export default function Selling(props) {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3 form-group" controlId="usingHleBool">
+        <Form.Group
+          className="mb-3 form-group checkbox-field"
+          controlId="usingHleBool"
+        >
           <Form.Label>Are you hiring an agent?</Form.Label>
           <Form.Check
             checked={agentSellValue}
             type="checkbox"
             onChange={handleSellAgent}
           />
-          <p>
+          <p className="agency-fee">
             {agentSellValue
-              ? `Your agency fee, incl 8% GST: ${f.format(agencyFeeSellValue)}`
+              ? `Your agency fee, incl 8% GST: $${f.format(agencyFeeSellValue)}`
               : null}
           </p>
         </Form.Group>
 
-        <Button className="btn btn-submit" type="submit" variant="success">
-          Submit
-        </Button>
+        <div className="container__submit-btn">
+          <Button className="btn btn-submit" variant="success" type="submit">
+            Submit
+          </Button>
+        </div>
       </Form>
-      <h3>
-        Your cash proceeds: {salesProceeds == 0 ? "" : f.format(salesProceeds)}
-      </h3>
-      <Link to="/buying">
-        <Button variant="primary">Your Affordability</Button>
-      </Link>
+      {salesProceeds ? (
+        <h3 className="calculated-results">
+          Your cash proceeds: ${f.format(salesProceeds)}
+        </h3>
+      ) : null}
+      <p className="call-to-action">
+        {" "}
+        Check your affordability!
+        <Link to="/buying">
+          <Button className="btn btn-blue" variant="primary">
+            Buying
+          </Button>
+        </Link>
+      </p>
     </div>
   );
 }

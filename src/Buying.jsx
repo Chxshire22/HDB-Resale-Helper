@@ -21,10 +21,9 @@ export default function Buying(props) {
     nextHleValue,
   } = props;
 
-  const f = new Intl.NumberFormat("en-us", {
-    currency: "SGD",
-    style: "currency",
-  });
+const f = new Intl.NumberFormat("en-us", {
+  style: "decimal",
+});
 
   //handles
   let handleCurrOa = (e) => {
@@ -59,14 +58,14 @@ export default function Buying(props) {
 
   const CashMustUse = () => {
     return (
-      <Form.Group>
+      <Form.Group className="mb-3 form-group" >
         <Form.Label>Cash Must Use</Form.Label>
         <InputGroup>
           <InputGroup.Text>$</InputGroup.Text>
           <Form.Control
-            type="number"
+            type="text"
             readOnly
-            value={cashMustUseValue}
+            value={f.format(cashMustUseValue)}
           ></Form.Control>
         </InputGroup>
       </Form.Group>
@@ -77,7 +76,7 @@ export default function Buying(props) {
 
   const CpfReturned = () =>{
     return (
-      <Form.Group>
+      <Form.Group className="mb-3 form-group">
         <Form.Label>CPF Returned To Your Account</Form.Label>
         <InputGroup>
           <InputGroup.Text>$</InputGroup.Text>
@@ -94,13 +93,15 @@ export default function Buying(props) {
   return (
     <div>
       <Link to="/">
-        <Button className="btn-home" variant="primary">Home</Button>
+        <Button className="btn-home btn-blue" variant="primary">
+          Home
+        </Button>
       </Link>
 
       <Form onSubmit={handleSubmit}>
-        {returnedCpf? <CpfReturned/>:null}
+        {returnedCpf ? <CpfReturned /> : null}
 
-        <Form.Group>
+        <Form.Group className="mb-3 form-group">
           <Form.Label>Current CPF OA</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -109,12 +110,12 @@ export default function Buying(props) {
               required
               type="number"
               placeholder=""
-              value={currentOa? currentOa:""}
+              value={currentOa ? currentOa : ""}
             ></Form.Control>
           </InputGroup>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="mb-3 form-group">
           <Form.Label>Eligible Loan Amount</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
@@ -122,49 +123,59 @@ export default function Buying(props) {
               onChange={handleLoan}
               type="number"
               required
-              value={loanAmount? loanAmount: ""}
+              value={loanAmount ? loanAmount : ""}
             ></Form.Control>
           </InputGroup>
         </Form.Group>
         {nextHleValue ? <CashMustUse /> : null}
 
-        <Form.Group>
+        <Form.Group className="mb-3 form-group">
           <Form.Label>Cash To Use</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
               onChange={handleCashToUse}
               type="number"
-              value={cashToUse? cashToUse: ""}
+              value={cashToUse ? cashToUse : ""}
               placeholder=""
             ></Form.Control>
           </InputGroup>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="mb-3 form-group">
           <Form.Label>Grants</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
               onChange={handleGrants}
               type="number"
-              value={grantsAmount? grantsAmount: ""}
+              value={grantsAmount ? grantsAmount : ""}
             ></Form.Control>
           </InputGroup>
         </Form.Group>
 
-        <Button className="btn btn-submit" variant="success" type="submit">
-          Submit
-        </Button>
+        <div className="container__submit-btn">
+          <Button className="btn btn-submit" variant="success" type="submit">
+            Submit
+          </Button>
+        </div>
       </Form>
 
-      <h3>
-        Your estimated budget: {affordability == 0 ? "" : f.format(affordability)}
-      </h3>
+      {affordability ? (
+        <h3 className="calculated-results">
+          Your estimated budget: ${f.format(affordability)}
+        </h3>
+      ) : null}
 
-      <Link to="/selling">
-        <Button variant="primary">Selling</Button>
-      </Link>
+      <div className="return-action">
+        <Link to="/selling">
+          <Button className="btn btn-home btn-blue" variant="primary">
+            Selling
+          </Button>
+        </Link>
+
+        <p>Return to previous page</p>
+      </div>
     </div>
   );
 }

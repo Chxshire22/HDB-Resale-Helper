@@ -38,7 +38,8 @@ h1,h2,h3,h4{
 
 footer{
   font-size: xx-small;
-  bottom: -10px;
+  bottom: 0;
+  position: fixed;
 }
 
 /* bg */
@@ -49,7 +50,6 @@ footer{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 63%;
 }
 
 /* Home */
@@ -99,18 +99,25 @@ footer{
   background-color: #b69a11;
 }
 
-.btn-home{
+.btn-blue{
   background-color: #ABD7FF;
+  margin-left: 3rem;
 }
-.btn-home:hover{
+.btn-blue:hover{
   background-color: #728faa;
 }
 
 .btn-submit{
   background-color: #19A28D;
+  margin-top: 2rem;
+
+
 }
 .btn-submit:hover{
   background-color: #137a6b;
+}
+.btn-home{
+  margin-top: 1.5rem;
 }
 
 /* forms */
@@ -122,4 +129,45 @@ form{
 label{
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+.container__submit-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.calculated-results{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.call-to-action{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.return-action{
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  gap: 1rem;
+}
+
+.agency-fee{
+  margin-left: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .form-label{
+    width: 50%;
+  }
+  .input-group{
+    width: 50%;
+    display: inline-flex;
+  }
+  .checkbox-field{
+    display: flex;
+  }
 }
