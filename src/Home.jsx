@@ -11,19 +11,30 @@ export default function Home() {
           <Link className="link" to="/selling">
             <Button className="btn btn-selling" variant="warning">
               Selling
-            <img className="responsive-img" src="src/assets/img/for-sale.png" alt="" />
+              <img
+                className="responsive-img"
+                src="src/assets/img/for-sale.png"
+                alt=""
+              />
             </Button>
           </Link>
           <Link className="link" to="/buying">
             <Button className="btn btn-buying" variant="warning">
               Buying
-            <img className="responsive-img" src="src/assets/img/property.png" alt="" />
+              <img
+                className="responsive-img"
+                src="src/assets/img/property.png"
+                alt=""
+              />
             </Button>
           </Link>
         </div>
       </div>
-
-
+      <footer>
+        <p>
+          UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+        </p>
+      </footer>
     </div>
   );
 }

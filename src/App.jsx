@@ -85,11 +85,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>
-      <footer>
-        <p>
-          UIcons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
-        </p>
-      </footer>
+
     </div>
   );
 }

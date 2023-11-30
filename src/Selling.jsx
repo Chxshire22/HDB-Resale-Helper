@@ -96,7 +96,15 @@ export default function Selling(props) {
     console.log("salesProceeds ", salesProceeds)
     setReturnedCpf((cpf) => cpf = Number(cpfUsedValue)+Number(accruedValue))
     setCashMustUseValue((cash) => {
-      return nextHleValue? Number(salesProceeds)+Number(agencyFeeSellValue):null
+      return nextHleValue
+        ? Number(
+            sellingPriceValue -
+              outstandingValue -
+              cpfUsedValue -
+              accruedValue -
+              levyValue
+          )/2
+        : null;
     })
   };
 
