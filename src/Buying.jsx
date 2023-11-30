@@ -177,14 +177,14 @@ const f = new Intl.NumberFormat("en-us", {
             </Button>
           </Link>
         </div>
-        <div className="call-to-action">
-          
+
+        {affordability? <div className="call-to-action">  
           <Link to="/buying-fees">
             <Button className="btn btn-blue" variant="primary">
               Next
             </Button>
           </Link>
-        </div>
+        </div>:null}
       </div>
     </div>
   );
