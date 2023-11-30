@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Selling from "./Selling";
 import Buying from "./Buying";
+import BuyingCosts from "./BuyingCosts";
 import Home from "./Home";
 import "./App.css";
 
@@ -26,6 +27,7 @@ function App() {
   const [loanAmount, setLoanAmount] = useState(0);
   const [cashToUse, setCashToUse] = useState(0);
   const [grantsAmount, setGrantAmount] = useState(0)
+  //states for BuyingCosts
 
 
   return (
@@ -33,6 +35,7 @@ function App() {
       <Router>
         <Routes>
           <Route
+          exact
             path="/buying"
             element={
               <Buying
@@ -54,6 +57,7 @@ function App() {
             }
           />
           <Route
+          exact
             path="/selling"
             element={
               <Selling
@@ -82,7 +86,8 @@ function App() {
               />
             }
           />
-          <Route path="/" element={<Home />} />
+          <Route exact path="/buying-fees" element={<BuyingCosts/>}/>
+          <Route exact path="/" element={<Home />} />
         </Routes>
       </Router>
 

@@ -249,15 +249,14 @@ export default function Selling(props) {
           Your cash proceeds: ${f.format(salesProceeds)}
         </h3>
       ) : null}
-      <p className="call-to-action">
-        {" "}
-        Check your affordability!
+      <div className="call-to-action">
+        
         <Link to="/buying">
           <Button className="btn btn-blue" variant="primary">
-            Buying
+            Affordability
           </Button>
         </Link>
-      </p>
+      </div>
     </div>
   );
 }

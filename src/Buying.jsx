@@ -169,23 +169,23 @@ const f = new Intl.NumberFormat("en-us", {
         </h3>
       ) : null}
 
-      {/* <div className="return-action">
-        <Link to="/selling">
-          <Button className="btn btn-home btn-blue" variant="primary">
-            Selling
-          </Button>
-        </Link>
-
-        <p>Go to selling page</p>
-      </div> */}
-      <p className="return-action">
-        <Link to="/selling">
-          <Button className="btn btn-blue" variant="primary">
-            Selling
-          </Button>
-        </Link>{" "}
-        Go to selling page
-      </p>
+      <div className="page-nav">
+        <div className="return-action">
+          <Link to="/selling">
+            <Button className="btn btn-blue" variant="primary">
+              Selling
+            </Button>
+          </Link>
+        </div>
+        <div className="call-to-action">
+          
+          <Link to="/buying-fees">
+            <Button className="btn btn-blue" variant="primary">
+              Next
+            </Button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

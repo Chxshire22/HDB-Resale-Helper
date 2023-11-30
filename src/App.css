@@ -263,3 +263,11 @@ label{
     height: auto;
   }
 }
+
+
+/* page nav */
+
+.page-nav{
+  display: flex;
+  justify-content: space-between;
+}
