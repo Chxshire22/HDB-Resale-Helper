@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Selling from "./Selling";
@@ -18,24 +17,26 @@ function App() {
   const [accruedValue, setAccruedValue] = useState("");
   const [levyValue, setLevyValue] = useState("");
   const [nextHdbValue, setNextHdbValue] = useState(false);
-  const [agentSellValue, setAgentSellValue] = useState(false)
-  const [agencyFeeSellValue, setAgencyFeeSellValue] = useState(0)
-  const [cashMustUseValue, setCashMustUseValue] = useState(0)
+  const [agentSellValue, setAgentSellValue] = useState(false);
+  const [agencyFeeSellValue, setAgencyFeeSellValue] = useState(0);
+  const [cashMustUseValue, setCashMustUseValue] = useState(0);
   //states for buying
   const [affordability, setAffordability] = useState(0);
   const [currentOa, setCurrentOa] = useState(0);
   const [loanAmount, setLoanAmount] = useState(0);
   const [cashToUse, setCashToUse] = useState(0);
-  const [grantsAmount, setGrantAmount] = useState(0)
+  const [grantsAmount, setGrantAmount] = useState(0);
   //states for BuyingCosts
-
+  const [purchasePriceValue, setPurchasePriceValue] = useState("");
+  const [cashBalAfterFees, setCashBalAfterFees] = useState("")
+  const [totalFeeValue, setTotalFeeValue] = useState("")
 
   return (
     <div className="app-container" style={{ minHeight: "100vh" }}>
       <Router>
         <Routes>
           <Route
-          exact
+            exact
             path="/buying"
             element={
               <Buying
@@ -57,7 +58,7 @@ function App() {
             }
           />
           <Route
-          exact
+            exact
             path="/selling"
             element={
               <Selling
@@ -86,11 +87,24 @@ function App() {
               />
             }
           />
-          <Route exact path="/buying-fees" element={<BuyingCosts/>}/>
+          <Route 
+          exact
+          path="/buying-fees" 
+          element={
+          <BuyingCosts 
+          totalFeeValue={totalFeeValue}
+          setTotalFeeValue={setTotalFeeValue}
+          salesProceeds={salesProceeds}
+          cashBalAfterFees={cashBalAfterFees}
+          setCashBalAfterFees={setCashBalAfterFees}
+          purchasePriceValue={purchasePriceValue}
+          setPurchasePriceValue={setPurchasePriceValue}
+          />
+          } 
+          />
           <Route exact path="/" element={<Home />} />
         </Routes>
       </Router>
-
     </div>
   );
 }

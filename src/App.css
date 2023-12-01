@@ -151,6 +151,12 @@ footer{
   
 }
 
+.dropdown-toggle{
+  margin: 0;
+  border-radius: 0.375rem;
+  color: #ABD7FF;
+}
+
 /* forms */
 
 form{

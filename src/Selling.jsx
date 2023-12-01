@@ -38,34 +38,6 @@ export default function Selling(props) {
     setNextHleValue
   } = props;
   
-  
-  let handleSellingOnChange = (e) => {
-    setSellingPriceValue(e.target.value)
-  };
-  let handleOutstandingOnChange = (e) => {
-    setOutstandingValue(e.target.value)
-  };
-  let handleCpfUsedOnChange = (e) => {
-    setCpfUsedValue(e.target.value)
-  };
-  let handleAccruedOnChange = (e) => {
-    setAccruedValue(e.target.value)
-  };
-  let handleLevyOnChange = (e) => {
-    setLevyValue(e.target.value)
-  };
-  let handleNextHdb = (e) => {
-    setDisabledNextHleInput(nextHdbValue? true : false)
-    setNextHdbValue(e.target.checked)
-  };
-  let handleNextHle = (e) => {
-    setNextHleValue(e.target.checked)
-  };
-  let handleSellAgent = (e) =>{
-    setAgentSellValue(e.target.checked)
-    setAgencyFeeSellValue(((sellingPriceValue*0.02)*1.08).toFixed(2))
-  }
-
 
   //what happens on submit
   
@@ -140,7 +112,7 @@ export default function Selling(props) {
                 required
                 type="number"
                 placeholder="Enter proposed selling price"
-                onChange={handleSellingOnChange}
+                onChange={(e) => setSellingPriceValue(e.target.value)}
                 min={1}
                 step={1}
               />
@@ -155,7 +127,7 @@ export default function Selling(props) {
                 required
                 type="number"
                 placeholder=""
-                onChange={handleOutstandingOnChange}
+                onChange={(e) => setOutstandingValue(e.target.value)}
                 step={0.01}
               />
             </InputGroup>
@@ -169,7 +141,7 @@ export default function Selling(props) {
                 required
                 type="number"
                 placeholder=""
-                onChange={handleCpfUsedOnChange}
+                onChange={(e) => setCpfUsedValue(e.target.value)}
               />
             </InputGroup>
           </Form.Group>
@@ -182,7 +154,7 @@ export default function Selling(props) {
                 required
                 type="number"
                 placeholder=""
-                onChange={handleAccruedOnChange}
+                onChange={(e) => setAccruedValue(e.target.value)}
               />
             </InputGroup>
           </Form.Group>
@@ -194,7 +166,7 @@ export default function Selling(props) {
                 value={levyValue}
                 type="number"
                 placeholder=""
-                onChange={handleLevyOnChange}
+                onChange={(e) => setLevyValue(e.target.value)}
               />
             </InputGroup>
           </Form.Group>
@@ -206,19 +178,24 @@ export default function Selling(props) {
             <Form.Check
               checked={nextHdbValue}
               type="checkbox"
-              onChange={handleNextHdb}
+              onChange={(e) => {
+                setNextHdbValue(e.target.checked);
+                setDisabledNextHleInput(nextHdbValue ? true : false);
+              }}
             />
           </Form.Group>
           <Form.Group
             className="mb-3 form-group checkbox-field"
             controlId="usingHleBool"
           >
-            <Form.Label>Will you be taking HDB Loan for the next HDB?</Form.Label>
+            <Form.Label>
+              Will you be taking HDB Loan for the next HDB?
+            </Form.Label>
             <Form.Check
               checked={nextHleValue}
               disabled={disabledNextHleInput}
               type="checkbox"
-              onChange={handleNextHle}
+              onChange={(e) => setNextHleValue(e.target.checked)}
             />
           </Form.Group>
           <Form.Group
@@ -229,11 +206,18 @@ export default function Selling(props) {
             <Form.Check
               checked={agentSellValue}
               type="checkbox"
-              onChange={handleSellAgent}
+              onChange={(e) => {
+                setAgentSellValue(e.target.checked);
+                setAgencyFeeSellValue(
+                  (sellingPriceValue * 0.02 * 1.08).toFixed(2)
+                );
+              }}
             />
             <p className="agency-fee">
               {agentSellValue
-                ? `Your agency fee, incl 8% GST: $${f.format(agencyFeeSellValue)}`
+                ? `Your agency fee, incl 8% GST: $${f.format(
+                    agencyFeeSellValue
+                  )}`
                 : null}
             </p>
           </Form.Group>
@@ -250,7 +234,6 @@ export default function Selling(props) {
         </h3>
       ) : null}
       <div className="call-to-action">
-        
         <Link to="/buying">
           <Button className="btn btn-blue" variant="primary">
             Affordability
