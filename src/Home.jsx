@@ -1,15 +1,51 @@
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+// import {gsap} from "gsap"
+// import { useEffect, useLayoutEffect, useRef } from "react";
 
 export default function Home() {
+
+  // const headerRef = useRef()
+  // const headerTagRef = useRef()
+  // const sellingRef = useRef()
+  // const buyingRef = useRef()
+
+  // const handleSellingClick = () => {
+  //   const timeline = gsap.timeline({ defaults: { duration: "0.7" } });
+  //   timeline
+  //     .to(headerRef.current, { y: "-=100vh", ease: "power2.out" })
+  //     .to(headerTagRef.current, { y: "-=100vh", ease: "power2.out" })
+  //     .to(sellingRef.current, { y: "-=100vh", ease: "power2.out" })
+  //     .to(buyingRef.current, { y: "-=100vh", ease: "power2.out", onComplete:()=>useNavigate("/selling")})
+  // };
+
+
+  // useLayoutEffect(() => { 
+  //   const timeline = gsap.timeline({defaults:{duration:"0.7"}});
+  //   timeline
+  //     .from(headerRef.current, { y: "100vh", ease: "power2.in" })
+  //     .from(headerTagRef.current, { y: "100vh", ease: "power2.in" })
+  //     .from(sellingRef.current, { y: "100vh", ease: "power2.in" })
+  //     .from(buyingRef.current, { y: "100vh", ease: "power2.in" });
+
+  // },[])
+
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <div className="home-background">
-        <h1 className="home-header">HDB Resale.Helper</h1>
-        <h3 className="home-header__tag">I am ...</h3>
+        <h1 className="home-header" >
+          HDB Resale.Helper
+        </h1>
+        <h3 className="home-header__tag" >
+          I am ...
+        </h3>
         <div className="links">
-          <Link className="link" to="/selling">
-            <Button className="btn btn-selling" variant="warning">
+          <Link to="/selling" className="link">
+            <Button
+        
+              className="btn btn-selling"
+              variant="warning"
+            >
               Selling
               <img
                 className="responsive-img"
@@ -18,7 +54,7 @@ export default function Home() {
               />
             </Button>
           </Link>
-          <Link className="link" to="/buying">
+          <Link  className="link" to="/buying">
             <Button className="btn btn-buying" variant="warning">
               Buying
               <img

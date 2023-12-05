@@ -137,9 +137,9 @@ export default function BuyingCosts(props) {
           Total fees: ${f.format(totalFeeValue)}
         </h3>
       ) : null}
-      {cashBalAfterFees ? (
+      {totalFeeValue ? (
         <h3 className="calculated-results">
-          Cash balance: ${f.format(cashBalAfterFees)}
+          Cash balance: ${f.format(salesProceeds-totalFeeValue)}
         </h3>
       ) : null}
 
